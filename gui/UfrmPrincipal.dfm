@@ -1,10 +1,11 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Comprimir Bin'#225'rios'
-  ClientHeight = 263
-  ClientWidth = 434
+  ClientHeight = 398
+  ClientWidth = 459
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -2128,23 +2129,256 @@ object frmPrincipal: TfrmPrincipal
     FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object pnlExecutando: TPanel
+    Left = 0
+    Top = 105
+    Width = 459
+    Height = 252
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 3
+    Visible = False
+    ExplicitLeft = 264
+    ExplicitTop = 408
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object Image1: TImage
+      Left = 24
+      Top = 26
+      Width = 41
+      Height = 50
+      Center = True
+      Transparent = True
+    end
+    object lblStatus: TLabel
+      Left = 88
+      Top = 38
+      Width = 50
+      Height = 13
+      Caption = 'lblStatus'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
+  object pnlAvancado: TPanel
+    Left = 0
+    Top = 105
+    Width = 459
+    Height = 252
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 2
+    Visible = False
+    ExplicitHeight = 246
+    object lblExport: TLabel
+      Left = 24
+      Top = 9
+      Width = 68
+      Height = 13
+      Caption = 'Se'#231#227'o export:'
+    end
+    object lblIcones: TLabel
+      Left = 24
+      Top = 36
+      Width = 36
+      Height = 13
+      Caption = #205'cones:'
+    end
+    object lblResources: TLabel
+      Left = 24
+      Top = 63
+      Width = 54
+      Height = 13
+      Caption = 'Resources:'
+    end
+    object lblStripReloc: TLabel
+      Left = 24
+      Top = 90
+      Width = 35
+      Height = 13
+      Caption = 'Relocs:'
+    end
+    object lblOverlay: TLabel
+      Left = 24
+      Top = 117
+      Width = 83
+      Height = 13
+      Caption = 'Dados adicionais:'
+    end
+    object lblNivel: TLabel
+      Left = 24
+      Top = 152
+      Width = 27
+      Height = 13
+      Caption = 'N'#237'vel:'
+    end
+    object lblNivelValor: TLabel
+      Left = 416
+      Top = 152
+      Width = 7
+      Height = 13
+      Caption = '8'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblTuning: TLabel
+      Left = 24
+      Top = 187
+      Width = 40
+      Height = 13
+      Caption = 'M'#233'todo:'
+    end
+    object cbCompressExport: TComboBox
+      Left = 112
+      Top = 6
+      Width = 322
+      Height = 21
+      Style = csDropDownList
+      ItemIndex = 1
+      TabOrder = 0
+      Text = 'Comprimir em execut'#225'veis (Padr'#227'o)'
+      Items.Strings = (
+        'N'#227'o comprimir'
+        'Comprimir em execut'#225'veis (Padr'#227'o)'
+        'Comprimir em todos formatos')
+    end
+    object cbCompressIcons: TComboBox
+      Left = 112
+      Top = 33
+      Width = 322
+      Height = 21
+      Style = csDropDownList
+      ItemIndex = 2
+      TabOrder = 1
+      Text = 'Comprimir todos que n'#227'o est'#227'o no primeiro diret'#243'rio (Padr'#227'o)'
+      Items.Strings = (
+        'N'#227'o comprimir '#237'cones'
+        'Comprimir todos exceto o primeiro'
+        'Comprimir todos que n'#227'o est'#227'o no primeiro diret'#243'rio (Padr'#227'o)'
+        'Comprimir todos os '#237'cones')
+    end
+    object cbResources: TComboBox
+      Left = 112
+      Top = 60
+      Width = 322
+      Height = 21
+      Style = csDropDownList
+      ItemIndex = 1
+      TabOrder = 2
+      Text = 'Comprimir resources (no delphi, formato .res)'
+      Items.Strings = (
+        'N'#227'o comprimir resources'
+        'Comprimir resources (no delphi, formato .res)')
+    end
+    object cbStripRelocs: TComboBox
+      Left = 112
+      Top = 87
+      Width = 322
+      Height = 21
+      Style = csDropDownList
+      ItemIndex = 1
+      TabOrder = 3
+      Text = 'Remover relocs de registros (Padr'#227'o)'
+      Items.Strings = (
+        'Manter'
+        'Remover relocs de registros (Padr'#227'o)')
+    end
+    object cbForced: TCheckBox
+      Left = 321
+      Top = 217
+      Width = 113
+      Height = 17
+      Caption = 'For'#231'ar'
+      TabOrder = 4
+    end
+    object cbAllMethods: TCheckBox
+      Left = 24
+      Top = 217
+      Width = 113
+      Height = 17
+      Caption = 'Todos os m'#233'todos'
+      TabOrder = 5
+    end
+    object cbAllFilters: TCheckBox
+      Left = 168
+      Top = 217
+      Width = 113
+      Height = 17
+      Caption = 'Todos os filtros'
+      TabOrder = 6
+    end
+    object cbOverlay: TComboBox
+      Left = 112
+      Top = 114
+      Width = 322
+      Height = 21
+      Style = csDropDownList
+      ItemIndex = 0
+      TabOrder = 7
+      Text = 'Copiar dados extras para o fim do execut'#225'vel (Padr'#227'o)'
+      Items.Strings = (
+        'Copiar dados extras para o fim do execut'#225'vel (Padr'#227'o)'
+        'Ignorar dados extras (Cuidado: o arquivo pode falhar)'
+        'Recusar a comprimir arquivo com dados extras no final')
+    end
+    object tbrNivel: TTrackBar
+      Left = 112
+      Top = 141
+      Width = 289
+      Height = 45
+      Min = 1
+      Position = 8
+      TabOrder = 8
+      ThumbLength = 15
+      TickMarks = tmBoth
+      OnChange = tbrNivelChange
+    end
+    object cbMetodo: TComboBox
+      Left = 112
+      Top = 184
+      Width = 193
+      Height = 21
+      Style = csDropDownList
+      ItemIndex = 0
+      TabOrder = 9
+      Text = 'UPX'
+      Items.Strings = (
+        'UPX'
+        'LZMA (melhor custo/benef'#237'cio)'
+        'Ultra (reexecuta 36 vezes)'
+        'Ultra++ (reexecuta 72 vezes)')
+    end
+  end
   object pnlTopo: TPanel
     Left = 0
     Top = 0
-    Width = 434
+    Width = 459
     Height = 105
     Align = alTop
+    BevelOuter = bvNone
     TabOrder = 0
     object btnEscolherArquivo: TSpeedButton
       Left = 24
       Top = 24
       Width = 385
       Height = 25
+      Hint = 'Clique para escolher um arquivo.'
       Caption = '(escolher arquivo)'
       Flat = True
+      ParentShowHint = False
+      ShowHint = True
       OnClick = btnEscolherArquivoClick
     end
     object lblArquivo: TLabel
@@ -2176,52 +2410,46 @@ object frmPrincipal: TfrmPrincipal
     object bmMetodo: TComboBox
       Left = 24
       Top = 74
-      Width = 385
+      Width = 169
       Height = 21
+      Hint = 
+        'Escolha qual m'#233'todo dever'#225' ser usado. Para mais op'#231#245'es, selecion' +
+        'e o item Avan'#231'ado.'
       Style = csDropDownList
+      ItemIndex = 0
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 0
+      TabStop = False
+      Text = 'Normal'
       OnChange = bmMetodoChange
       Items.Strings = (
         'Normal'
         'M'#233'dio'
         'Melhor'
-        'Brutal (Lento)'
-        'Ultra brutal (Muito lento)'
+        'Ultra (Lento)'
+        'Ultra++ (Muito lento)'
         'Avan'#231'ado')
     end
   end
   object pnlBase: TPanel
     Left = 0
-    Top = 222
-    Width = 434
+    Top = 357
+    Width = 459
     Height = 41
     Align = alBottom
+    BevelOuter = bvNone
     TabOrder = 1
-    ExplicitLeft = 216
-    ExplicitTop = 176
-    ExplicitWidth = 185
     object btnIniciar: TButton
       Left = 24
-      Top = 8
+      Top = 6
       Width = 75
       Height = 25
       Caption = 'Iniciar'
       TabOrder = 0
       TabStop = False
+      OnClick = btnIniciarClick
     end
-  end
-  object pnlAvancado: TPanel
-    Left = 0
-    Top = 105
-    Width = 434
-    Height = 117
-    Align = alClient
-    TabOrder = 2
-    Visible = False
-    ExplicitLeft = 128
-    ExplicitTop = 136
-    ExplicitWidth = 185
-    ExplicitHeight = 41
   end
   object odEscolherArquivo: TOpenDialog
     Options = [ofReadOnly, ofHideReadOnly, ofPathMustExist, ofEnableSizing]

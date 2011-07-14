@@ -54,10 +54,15 @@
 			<DCCReference Include="UfrmPrincipal.pas">
 				<Form>frmPrincipal</Form>
 			</DCCReference>
+			<DCCReference Include="UComprimir.pas"/>
 			<RcItem Include="..\..\upx307w\upx.exe">
 				<ContainerId>ResourceItem</ContainerId>
 				<ResourceType>RCDATA</ResourceType>
 				<ResourceId>upxexe</ResourceId>
+			</RcItem>
+			<RcItem Include="..\..\processing.gif">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>processando</ResourceId>
 			</RcItem>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>

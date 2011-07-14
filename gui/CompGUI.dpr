@@ -4,7 +4,8 @@ program CompGUI;
 
 uses
   Forms,
-  UfrmPrincipal in 'UfrmPrincipal.pas' {frmPrincipal};
+  UfrmPrincipal in 'UfrmPrincipal.pas' {frmPrincipal},
+  UComprimir in 'UComprimir.pas';
 
 {$R *.res}
 
