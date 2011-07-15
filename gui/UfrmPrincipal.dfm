@@ -2133,41 +2133,6 @@ object frmPrincipal: TfrmPrincipal
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object pnlExecutando: TPanel
-    Left = 0
-    Top = 105
-    Width = 459
-    Height = 252
-    Align = alClient
-    BevelOuter = bvNone
-    TabOrder = 3
-    Visible = False
-    ExplicitLeft = 264
-    ExplicitTop = 408
-    ExplicitWidth = 185
-    ExplicitHeight = 41
-    object Image1: TImage
-      Left = 24
-      Top = 26
-      Width = 41
-      Height = 50
-      Center = True
-      Transparent = True
-    end
-    object lblStatus: TLabel
-      Left = 88
-      Top = 38
-      Width = 50
-      Height = 13
-      Caption = 'lblStatus'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-  end
   object pnlAvancado: TPanel
     Left = 0
     Top = 105
@@ -2177,7 +2142,6 @@ object frmPrincipal: TfrmPrincipal
     BevelOuter = bvNone
     TabOrder = 2
     Visible = False
-    ExplicitHeight = 246
     object lblExport: TLabel
       Left = 24
       Top = 9
@@ -2359,6 +2323,44 @@ object frmPrincipal: TfrmPrincipal
         'LZMA (melhor custo/benef'#237'cio)'
         'Ultra (reexecuta 36 vezes)'
         'Ultra++ (reexecuta 72 vezes)')
+    end
+  end
+  object pnlExecutando: TPanel
+    Left = 0
+    Top = 105
+    Width = 459
+    Height = 252
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 3
+    Visible = False
+    object imgStatus: TImage
+      Left = 24
+      Top = 26
+      Width = 41
+      Height = 50
+      Center = True
+      Transparent = True
+    end
+    object lblStatus: TLabel
+      Left = 87
+      Top = 28
+      Width = 50
+      Height = 13
+      Caption = 'lblStatus'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblStatusDetalhe: TLabel
+      Left = 88
+      Top = 48
+      Width = 78
+      Height = 13
+      Caption = 'lblStatusDetalhe'
     end
   end
   object pnlTopo: TPanel

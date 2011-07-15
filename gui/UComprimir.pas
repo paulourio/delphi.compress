@@ -2,12 +2,33 @@ unit UComprimir;
 
 interface
 
-uses Windows, SysUtils, Classes, Dialogs, UfrmPrincipal;
+uses Windows, Forms, SysUtils, Classes, Dialogs, UfrmPrincipal, UthrExecutar;
 
 function GerarArquivoTemporario: string;
-procedure Comprimir(Form: TfrmPrincipal);
+procedure Comprimir(AForm: TfrmPrincipal);
+function TamanhoArquivo(const AString: string): LongWord;
 
-implementation
+var
+  Exec: TThrExecutar;
+  
+implementation    
+
+function TamanhoArquivo(const AString: string): LongWord;
+var
+   FileHandle: THandle;
+   FileSize: LongWord;
+begin
+   FileHandle := CreateFile(PWideChar(AString),
+                           GENERIC_READ,
+                           0, {exclusive}
+                           nil, {security}
+                           OPEN_EXISTING,
+                           FILE_ATTRIBUTE_NORMAL,
+                           0);
+   FileSize   := GetFileSize(FileHandle, nil);
+   Result     := FileSize;
+   CloseHandle(FileHandle);
+end;
 
 function GerarArquivoTemporario: string;
 var
@@ -17,7 +38,7 @@ begin
   GetTempPath(MAX_PATH, @wtempDir);
   GetTempFileName(@wtempDir, PWideChar('upx'), 0, @wtempFile);
   Result := StrPas(wtempFile);
-  DeleteFile(Result);
+  while not DeleteFile(Result) do ;
   Result := Result + '.exe';
 end;
 
@@ -28,6 +49,7 @@ begin
   res := TResourceStream.Create(HInstance, 'upxexe', RT_RCDATA);
   try
     res.SaveToFile(Arquivo);
+    //ShowMessage(Arquivo);
   finally
     res.Free;
   end;
@@ -127,20 +149,28 @@ begin
   end;
 end;
 
-procedure Comprimir(Form: TfrmPrincipal);
+procedure Comprimir(AForm: TfrmPrincipal);
 var
-  UPX, Comando, Saida: String;
+  UPX, Parametros, Saida, Entrada: String;
 begin
   UPX := GerarArquivoTemporario;
+  Entrada := AForm.btnEscolherArquivo.Caption;
   Saida := GerarArquivoTemporario;
   ExtrairUPX(UPX);
   try
-    Form.Status('Criando configurações...');
-    Comando := UPX + #32 + MontarOpcoes(Form) +
-              ' -o' + Saida + #32 + Form.btnEscolherArquivo.Caption;
-    ShowMessage( Comando );
+    AForm.Status('Criando configurações...');
+    Parametros := '-qqq ' + MontarOpcoes(AForm) +
+              ' -o' + Saida + #32 + Entrada;
+
+    AForm.Status('Compactando...');
+    AForm.lblStatusDetalhe.Caption := EmptyStr;
+    AForm.Repaint;
+    Exec := TThrExecutar.Create(AForm);
+    Exec.Arquivo := UPX;
+    Exec.Parametros := Parametros;
+    Exec.Resume;
   finally
-    RemoverUPX(UPX);
+
   end;
 end;
 

@@ -55,6 +55,7 @@
 				<Form>frmPrincipal</Form>
 			</DCCReference>
 			<DCCReference Include="UComprimir.pas"/>
+			<DCCReference Include="UthrExecutar.pas"/>
 			<RcItem Include="..\..\upx307w\upx.exe">
 				<ContainerId>ResourceItem</ContainerId>
 				<ResourceType>RCDATA</ResourceType>
@@ -63,6 +64,10 @@
 			<RcItem Include="..\..\processing.gif">
 				<ResourceType>RCDATA</ResourceType>
 				<ResourceId>processando</ResourceId>
+			</RcItem>
+			<RcItem Include="..\..\error.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>erro</ResourceId>
 			</RcItem>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>

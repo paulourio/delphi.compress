@@ -10,12 +10,21 @@
     <Transaction>2010/10/22 13:22:36.000.952,=C:\Users\Jimmy\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2010/10/24 21:52:55.000.710,=C:\Users\Jimmy\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2011/07/13 13:05:28.000.210,=C:\Users\Jimmy\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2011/07/13 13:10:07.000.720,C:\Users\Jimmy\Documents\RAD Studio\Projects\Unit1.pas=E:\projetos\UPXTool\Compressor\gui\UfrmPrincipal.pas</Transaction>
-    <Transaction>2011/07/13 13:10:07.000.720,C:\Users\Jimmy\Documents\RAD Studio\Projects\Unit1.dfm=E:\projetos\UPXTool\Compressor\gui\UfrmPrincipal.dfm</Transaction>
-    <Transaction>2011/07/13 13:10:12.000.575,C:\Users\Jimmy\Documents\RAD Studio\Projects\Project1.dproj=E:\projetos\UPXTool\Compressor\gui\CompGUI.dproj</Transaction>
+    <Transaction>2011/07/13 13:10:07.000.720,E:\projetos\UPXTool\Compressor\gui\UfrmPrincipal.dfm=C:\Users\Jimmy\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2011/07/13 13:10:07.000.720,E:\projetos\UPXTool\Compressor\gui\UfrmPrincipal.pas=C:\Users\Jimmy\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2011/07/13 13:10:12.000.575,E:\projetos\UPXTool\Compressor\gui\CompGUI.dproj=C:\Users\Jimmy\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2011/07/13 13:31:30.000.392,=E:\projetos\UPXTool\upx307w\upx.exe</Transaction>
     <Transaction>2011/07/13 16:38:24.000.666,=E:\projetos\UPXTool\processing.gif</Transaction>
-    <Transaction>2011/07/13 20:21:48.120,=E:\projetos\UPXTool\Compressor\gui\Unit1.pas</Transaction>
-    <Transaction>2011/07/13 20:21:59.222,E:\projetos\UPXTool\Compressor\gui\UComprimir.pas=E:\projetos\UPXTool\Compressor\gui\Unit1.pas</Transaction>
+    <Transaction>2011/07/13 20:21:48.000.120,=E:\projetos\UPXTool\Compressor\gui\Unit1.pas</Transaction>
+    <Transaction>2011/07/13 20:21:59.000.222,E:\projetos\UPXTool\Compressor\gui\Unit1.pas=E:\projetos\UPXTool\Compressor\gui\UComprimir.pas</Transaction>
+    <Transaction>2011/07/14 01:08:37.000.299,=E:\projetos\UPXTool\Compressor\gui\Unit1.pas</Transaction>
+    <Transaction>2011/07/14 01:08:44.000.161,E:\projetos\UPXTool\Compressor\gui\UthrExecutar.pas=E:\projetos\UPXTool\Compressor\gui\Unit1.pas</Transaction>
+    <Transaction>2011/07/14 02:05:47.000.159,=E:\projetos\UPXTool\Compressor\gui\Unit1.pas</Transaction>
+    <Transaction>2011/07/14 02:06:45.000.057,E:\projetos\UPXTool\Compressor\gui\UthrMonitor.pas=E:\projetos\UPXTool\Compressor\gui\Unit1.pas</Transaction>
+    <Transaction>2011/07/14 02:21:10.000.764,E:\projetos\UPXTool\Compressor\gui\UthrMonitor.pas=</Transaction>
+    <Transaction>2011/07/14 13:35:31.000.947,=E:\projetos\UPXTool\Compressor\gui\Unit1.pas</Transaction>
+    <Transaction>2011/07/14 13:35:44.000.016,E:\projetos\UPXTool\Compressor\gui\UConsts.pas=E:\projetos\UPXTool\Compressor\gui\Unit1.pas</Transaction>
+    <Transaction>2011/07/14 20:50:58.435,E:\projetos\UPXTool\Compressor\gui\UConsts.pas=</Transaction>
+    <Transaction>2011/07/14 21:02:21.644,=E:\projetos\UPXTool\error.png</Transaction>
   </Transactions>
 </BorlandProject>

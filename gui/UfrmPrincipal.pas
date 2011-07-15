@@ -4,7 +4,10 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls, GIFImg;
+  Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls, GIFImg, PNGImage;
+
+const
+  WM_FINALIZADO = WM_USER + 1067;
 
 type
   TfrmPrincipal = class(TForm)
@@ -36,8 +39,9 @@ type
     lblTuning: TLabel;
     cbMetodo: TComboBox;
     pnlExecutando: TPanel;
-    Image1: TImage;
+    imgStatus: TImage;
     lblStatus: TLabel;
+    lblStatusDetalhe: TLabel;
     procedure btnEscolherArquivoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure bmMetodoChange(Sender: TObject);
@@ -45,11 +49,14 @@ type
     procedure btnIniciarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
+    FStatus: string;
     procedure CarregarGIF;
     procedure SetupGUI(Estado: Integer);
+    procedure Finalizado(var Message: TMessage); message WM_FINALIZADO;
   public
     procedure AtualizarTamanho;
-    procedure Status(Mensagem: string);
+    procedure Status(AMensagem: string);
+    procedure FinalizarExecucao;
   end;
 
 var
@@ -107,11 +114,30 @@ begin
   try
     gif := TGIFImage.Create;
     gif.LoadFromStream(res);
-    gif.Animate := true;
-    Image1.Picture.Assign(gif);
+    gif.Animate := True;
+    imgStatus.Picture.Assign(gif);
   finally
     res.Free;
   end;
+end;
+
+procedure TfrmPrincipal.Finalizado(var Message: TMessage);
+var
+  res: TResourceStream;
+  png: TPngImage;
+begin
+  Status('Finalizado');
+  lblStatusDetalhe.Caption := 'Resultado: ' + IntToStr( Message.WParam);
+  res := TResourceStream.Create(HInstance, 'erro', RT_RCDATA);
+  png := TPngImage.Create;
+  png.LoadFromStream(res);
+  imgStatus.Picture.Assign(png);
+  res.Free;
+end;
+
+procedure TfrmPrincipal.FinalizarExecucao;
+begin
+
 end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
@@ -146,9 +172,9 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.Status(Mensagem: string);
+procedure TfrmPrincipal.Status(AMensagem: string);
 begin
-  lblStatus.Caption := Mensagem;
+  lblStatus.Caption := AMensagem;
 end;
 
 procedure TfrmPrincipal.tbrNivelChange(Sender: TObject);
