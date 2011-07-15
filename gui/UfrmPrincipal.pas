@@ -53,6 +53,7 @@ type
     procedure CarregarGIF;
     procedure SetupGUI(Estado: Integer);
     procedure Finalizado(var Message: TMessage); message WM_FINALIZADO;
+    procedure setStatusPNGImage(AId: string);
   public
     procedure AtualizarTamanho;
     procedure Status(AMensagem: string);
@@ -122,17 +123,20 @@ begin
 end;
 
 procedure TfrmPrincipal.Finalizado(var Message: TMessage);
-var
-  res: TResourceStream;
-  png: TPngImage;
 begin
   Status('Finalizado');
-  lblStatusDetalhe.Caption := 'Resultado: ' + IntToStr( Message.WParam);
-  res := TResourceStream.Create(HInstance, 'erro', RT_RCDATA);
-  png := TPngImage.Create;
-  png.LoadFromStream(res);
-  imgStatus.Picture.Assign(png);
-  res.Free;
+  if Message.WParam = 0 then
+  begin
+    setStatusPNGImage('sucesso');
+    lblStatusDetalhe.Caption := 'Arquivo compactado com sucesso. ' +
+      Format('Tamanho: %.2f%% do original', [
+        100 * TamanhoArquivo(ArqSaida) / TamanhoArquivo(ArqEntrada) ]);
+  end
+  else
+  begin
+    setStatusPNGImage('erro');
+    lblStatusDetalhe.Caption := 'Ocorreu um erro ao tentar compactar.';
+  end;
 end;
 
 procedure TfrmPrincipal.FinalizarExecucao;
@@ -148,6 +152,21 @@ end;
 procedure TfrmPrincipal.FormShow(Sender: TObject);
 begin
   AtualizarTamanho;
+end;
+
+procedure TfrmPrincipal.setStatusPNGImage(AId: string);
+var
+  res: TResourceStream;
+  png: TPngImage;
+begin
+  res := TResourceStream.Create(HInstance, AId, RT_RCDATA);
+  try
+    png := TPngImage.Create;
+    png.LoadFromStream(res);
+    imgStatus.Picture.Assign(png);
+  finally
+    FreeAndNil(res);
+  end;
 end;
 
 procedure TfrmPrincipal.SetupGUI(Estado: Integer);

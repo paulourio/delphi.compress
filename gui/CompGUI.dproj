@@ -61,13 +61,17 @@
 				<ResourceType>RCDATA</ResourceType>
 				<ResourceId>upxexe</ResourceId>
 			</RcItem>
-			<RcItem Include="..\..\processing.gif">
-				<ResourceType>RCDATA</ResourceType>
-				<ResourceId>processando</ResourceId>
-			</RcItem>
 			<RcItem Include="..\..\error.png">
 				<ResourceType>RCDATA</ResourceType>
 				<ResourceId>erro</ResourceId>
+			</RcItem>
+			<RcItem Include="..\..\sucesso.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>sucesso</ResourceId>
+			</RcItem>
+			<RcItem Include="..\..\processando.gif">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>processando</ResourceId>
 			</RcItem>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>

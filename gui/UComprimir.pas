@@ -10,6 +10,7 @@ function TamanhoArquivo(const AString: string): LongWord;
 
 var
   Exec: TThrExecutar;
+  ArqSaida, ArqEntrada: String;
   
 implementation    
 
@@ -151,16 +152,16 @@ end;
 
 procedure Comprimir(AForm: TfrmPrincipal);
 var
-  UPX, Parametros, Saida, Entrada: String;
+  UPX, Parametros: String;
 begin
   UPX := GerarArquivoTemporario;
-  Entrada := AForm.btnEscolherArquivo.Caption;
-  Saida := GerarArquivoTemporario;
+  ArqEntrada := AForm.btnEscolherArquivo.Caption;
+  ArqSaida := GerarArquivoTemporario;
   ExtrairUPX(UPX);
   try
     AForm.Status('Criando configurações...');
     Parametros := '-qqq ' + MontarOpcoes(AForm) +
-              ' -o' + Saida + #32 + Entrada;
+              ' -o' + ArqSaida + #32 + ArqEntrada;
 
     AForm.Status('Compactando...');
     AForm.lblStatusDetalhe.Caption := EmptyStr;

@@ -1,3 +1,4 @@
 upxexe RCDATA "..\\..\\upx307w\\upx.exe"
-processando RCDATA "..\\..\\processing.gif"
 erro RCDATA "..\\..\\error.png"
+sucesso RCDATA "..\\..\\sucesso.png"
+processando RCDATA "..\\..\\processando.gif"

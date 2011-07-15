@@ -2335,16 +2335,16 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 3
     Visible = False
     object imgStatus: TImage
-      Left = 24
-      Top = 26
-      Width = 41
-      Height = 50
+      Left = 28
+      Top = 30
+      Width = 31
+      Height = 31
       Center = True
       Transparent = True
     end
     object lblStatus: TLabel
-      Left = 87
-      Top = 28
+      Left = 79
+      Top = 30
       Width = 50
       Height = 13
       Caption = 'lblStatus'
@@ -2356,7 +2356,7 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
     end
     object lblStatusDetalhe: TLabel
-      Left = 88
+      Left = 79
       Top = 48
       Width = 78
       Height = 13
